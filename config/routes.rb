@@ -1,4 +1,8 @@
 Notes::Application.routes.draw do
+  scope 'api' do
+    resources :articles
+  end
+
   root to: "main#index"
 
   # The priority is based upon order of creation:

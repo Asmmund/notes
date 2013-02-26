@@ -1,0 +1,10 @@
+<h2>Articles</h2>
+<ul>
+  <% for article in @articles.models: %>
+    <li>
+      <h3><%= article.get('title') %></h3>
+      <h6><%= article.get('updated_at') %></h6>
+      <p><%= article.get('body') %></p>
+    </li>
+  <% end %>
+</ul>

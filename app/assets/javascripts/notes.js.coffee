@@ -4,7 +4,7 @@ window.Notes =
   Views: {}
   Routers: {}
   initialize: ->
-    new Notes.Routers.Notes()
+    new Notes.Routers.Articles()
     Backbone.history.start()
 
 $(document).ready ->
