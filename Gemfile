@@ -37,12 +37,11 @@ gem "thin", "1.5.0"
 gem 'slim'
 # To use debugger
 # gem 'debugger'
+gem 'backbone-on-rails'
 group :test do
+  gem "rspec-rails", "~> 2.0"
   gem "factory_girl_rails", "~> 4.0"
   gem "capybara"
   gem "guard-rspec"
+  gem 'shoulda-matchers'
 end
-group :test, :development do
-  gem "rspec-rails", "~> 2.0"
-end
-gem 'backbone-on-rails'
