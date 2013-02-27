@@ -1,10 +1,12 @@
 <h2>Articles</h2>
-<ul>
+<ul id="article_list">
   <% for article in @articles.models: %>
     <li>
-      <h3><%= article.get('title') %></h3>
-      <h6><%= article.get('updated_at') %></h6>
-      <p><%= article.get('body') %></p>
+      <div class="corners article_mini">
+        <h3><%= article.get('title') %></h3>
+        <h6 class="time"><%= article.get('updated_at') %></h6>
+        <p><%= article.get('body') %></p>
+      </div>
     </li>
   <% end %>
 </ul>

@@ -3,8 +3,23 @@ div#container {
   background: white;
   width:800px;
   padding: 5px;
-  border-radius: 10px;
+  ul#article_list{
+    list-style-type: none;
+    margin: 0 20px 0 0;
+    .article_mini {
+      padding:5px ;
+      margin: 5px 0;
+      h6.time{
+        color:red;
+        margin: -20px 0 0 0;
+      }
+    }
+  }
+}
+.corners {
+    border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border: 1px solid #800000
+
 }
