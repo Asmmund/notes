@@ -38,10 +38,11 @@ gem 'slim'
 # To use debugger
 # gem 'debugger'
 gem 'backbone-on-rails'
+gem 'factory_girl_rails'
 group :test do
   gem "rspec-rails", "~> 2.0"
-  gem "factory_girl_rails", "~> 4.0"
   gem "capybara"
   gem "guard-rspec"
   gem 'shoulda-matchers'
 end
+gem "mocha", :require => false

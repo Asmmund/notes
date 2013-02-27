@@ -191,9 +191,10 @@ DEPENDENCIES
   backbone-on-rails
   capybara
   coffee-rails (~> 3.2.1)
-  factory_girl_rails (~> 4.0)
+  factory_girl_rails
   guard-rspec
   jquery-rails
+  mocha
   pg
   rails (= 3.2.12)
   rspec-rails (~> 2.0)
