@@ -17,7 +17,9 @@ class Notes.Views.ArticlesIndex extends Backbone.View
 
   createArticle: (e)->
     e.preventDefault()
-    attributes = title: $('#new_article_name').val()
+    attributes =
+      title: $('#new_article_name').val()
+      body: 'Text of newly created article'
     @collection.create attributes,
       wait: true
       success: -> $('#new_article')[0].reset()
