@@ -1,12 +1,11 @@
 <h2>Articles</h2>
+ <div id="create_article" class="corners">
+  <form id="new_article">
+    <span>Create article</span>
+    <input type="text" size="25" name="name" id="new_article_name" maxlength="25" placeholder="Article title" autofocus=""  />
+    <input type="submit" />
+  </form>
+</div>
 <ul id="article_list">
-  <% for article in @articles.models: %>
-    <li>
-      <div class="corners article_mini">
-        <h3><%= article.get('title') %></h3>
-        <h6 class="time"><%= article.get('updated_at') %></h6>
-        <p><%= article.get('body') %></p>
-      </div>
-    </li>
-  <% end %>
+
 </ul>

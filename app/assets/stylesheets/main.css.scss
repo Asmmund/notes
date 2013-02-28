@@ -3,7 +3,16 @@ div#container {
   background: white;
   width:800px;
   padding: 5px;
-  ul#article_list{
+  div#create_article{
+    padding: 3px;
+    width: 400px;
+    float: right;
+    position: relative;
+    bottom: 40px;
+  }
+
+}
+ul#article_list{
     list-style-type: none;
     margin: 0 20px 0 0;
     .article_mini {
@@ -15,11 +24,10 @@ div#container {
       }
     }
   }
-}
 .corners {
     border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  border: 1px solid #800000
+  border: 1px solid grey;
 
 }
