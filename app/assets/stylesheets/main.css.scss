@@ -18,8 +18,24 @@ ul#article_list{
     .article_mini {
       padding:5px ;
       margin: 5px 0;
-      h6.time{
+      .private {
+        color: red;
+        font-weight: bold;
+      }
+      .public {
+        color: green;
+        font-weight: bold;
+      }
+      .delete {
+        position: relative;
+        bottom: 3em;
+        margin: 0 1em 00 0;
+        float: right;
+        font-weight: bold;
         color:red;
+        }
+      h6.time{
+        // color:red;
         margin: -20px 0 0 0;
       }
     }
