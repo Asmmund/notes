@@ -1,5 +1,5 @@
 <div class="corners article_mini">
-  <a href="" class="show"><h3><%= @article.get('title') %></h3></a>
+  <a href="" class="show view_full"><h3 ><%= @article.get('title') %></h3></a>
   <a href="" class="delete">X</a>
   <h6 class="time"><%= @article.get('updated_at') %></h6>
   <% if  @article.get('published'): %>
@@ -7,5 +7,5 @@
   <% else: %>
      <div class="private">Private</div>
   <% end %>
-  <p><%= @article.get('body') %></p>
+  <p><%= @article.get('body').substr(0,10) %>... &nbsp;<a href="" class="show view_full">Full --> </a></p>
 </div>

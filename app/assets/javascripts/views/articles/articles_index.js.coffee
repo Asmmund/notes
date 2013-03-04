@@ -4,16 +4,16 @@ class Notes.Views.ArticlesIndex extends Backbone.View
     'submit form#new_article': 'createArticle'
   initialize: ->
     @collection.on('reset',@render,this)
-    @collection.on('add',@appendEntry,this)
+    @collection.on('add',@appentArticle,this)
 
   render: ->
     $(@el).html(@template())
-    @collection.each(@appendEntry)
+    @collection.each(@appentArticle)
     this
 
-  appendEntry: (article)->
+  appentArticle: (article) =>
     view = new Notes.Views.Article(model: article)
-    $('ul#article_list').append(view.render().el)
+    @$('ul#article_list').append(view.render().el)
 
   createArticle: (e)->
     e.preventDefault()

@@ -4,9 +4,11 @@ class Notes.Routers.Articles extends Backbone.Router
     'articles/:id': 'show'
   initialize: ->
     @collection = new Notes.Collections.Articles()
-    @collection.fetch()
+    @collection.reset( $('#container').data('articles') )
   show: (id)->
-    alert "article #{id}"
+    @model = @collection.get(id)
+    view = new Notes.Views.ArticleShow(model: @model)
+    $('#container').html(view.render().el)
   index: ->
     view = new Notes.Views.ArticlesIndex(collection: @collection)
     $('#container').html(view.render().el)

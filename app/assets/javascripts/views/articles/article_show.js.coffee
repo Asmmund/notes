@@ -1,12 +1,10 @@
-class Notes.Views.Article extends Backbone.View
-  tagName: 'li'
-  template: JST['articles/menu']
+class Notes.Views.ArticleShow extends Backbone.View
+  template: JST['articles/show']
   events:
     'click a.delete': 'deleteArticle'
     'click div.public': 'hideArticle'
     'click div.private': 'publishArticle'
-    'click a.view_full': 'show'
-  initialize: ->
+  initialize: (collection,id)->
     @model.on('change',@render,this)
     @model.on('destroy',@remove,this)
   render: ->
@@ -20,8 +18,4 @@ class Notes.Views.Article extends Backbone.View
     event.preventDefault()
     @model.destroy()
     # @$(el).remove()
-
-  show:  (e)->
-    e.preventDefault()
-    Backbone.history.navigate("articles/#{@model.get('id')}",true)
 
