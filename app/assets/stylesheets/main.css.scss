@@ -6,9 +6,6 @@ div#container {
   div#create_article{
     padding: 3px;
     width: 400px;
-    float: right;
-    position: relative;
-    bottom: 40px;
   }
 
 }
@@ -19,6 +16,10 @@ ul#article_list{
     .article_mini {
       padding:5px ;
       margin: 5px 0;
+      textarea{
+        width:55em;
+        height:20em;
+      }
       .private {
         color: red;
         font-weight: bold;
@@ -27,14 +28,17 @@ ul#article_list{
         color: green;
         font-weight: bold;
       }
-      .delete {
-        position: relative;
-        bottom: 3em;
-        margin: 0 1em 00 0;
+      span.controlls{
         float: right;
-        font-weight: bold;
-        color:red;
+        *{
+          margin: 5px
         }
+        .delete {
+
+          font-weight: bold;
+          color:red;
+        }
+      }
       h6.time{
         // color:red;
         margin: -20px 0 0 0;

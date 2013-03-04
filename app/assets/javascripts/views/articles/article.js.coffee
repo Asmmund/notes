@@ -6,6 +6,7 @@ class Notes.Views.Article extends Backbone.View
     'click div.public': 'hideArticle'
     'click div.private': 'publishArticle'
     'click a.view_full': 'show'
+    'click a.edit':'edit'
   initialize: ->
     @model.on('change',@render,this)
     @model.on('destroy',@remove,this)
@@ -19,8 +20,9 @@ class Notes.Views.Article extends Backbone.View
   deleteArticle: (event)->
     event.preventDefault()
     @model.destroy()
-    # @$(el).remove()
-
+  edit: (e)->
+    e.preventDefault()
+    Backbone.history.navigate("articles/edit/#{@model.get('id')}",true)
   show:  (e)->
     e.preventDefault()
     Backbone.history.navigate("articles/#{@model.get('id')}",true)

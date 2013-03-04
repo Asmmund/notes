@@ -7,6 +7,10 @@ class Notes.Views.ArticleShow extends Backbone.View
   initialize: (collection,id)->
     @model.on('change',@render,this)
     @model.on('destroy',@remove,this)
+  deleteArticle: (event)->
+    event.preventDefault()
+    @model.destroy(wait: true)
+    Backbone.history.navigate("/articles",true)
   render: ->
     $(@el).html(@template(article: @model))
     this
@@ -14,8 +18,5 @@ class Notes.Views.ArticleShow extends Backbone.View
     @model.publish()
   hideArticle: ->
     @model.private()
-  deleteArticle: (event)->
-    event.preventDefault()
-    @model.destroy()
-    # @$(el).remove()
+
 

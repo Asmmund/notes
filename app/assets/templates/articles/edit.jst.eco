@@ -1,0 +1,18 @@
+<div class="corners article_mini">
+  <span class='controlls corners'>
+    <a href="" class="delete">X</a>
+  </span>
+  <h2>Editing document</h2>
+  <form id="edit_article">
+    <input type="text" size="25" name="name" value="<%= @article.get('title') %>" id="article_title" maxlength="25"  autofocus=""  />
+    <p><textarea id="article_body"><%= @article.get('body') %></textarea></p>
+  <% if  @article.get('published'): %>
+     <div class="public">Published</div>
+  <% else: %>
+     <div class="private">Private</div>
+  <% end %><br>
+    <input type="submit" />
+  </form>
+
+
+</div>

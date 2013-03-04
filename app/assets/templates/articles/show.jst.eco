@@ -1,6 +1,8 @@
 <div class="corners article_mini">
+  <span class="controlls corners">
+    <a href="" class="delete">X</a>
+  </span>
   <h3 ><%= @article.get('title') %></h3>
-  <a href="" class="delete">X</a>
   <h6 class="time"><%= @article.get('updated_at') %></h6>
   <% if  @article.get('published'): %>
      <div class="public" title="click to change state">Published</div>
