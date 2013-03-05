@@ -19,7 +19,8 @@ class Notes.Views.Article extends Backbone.View
     @model.private()
   deleteArticle: (event)->
     event.preventDefault()
-    @model.destroy()
+    if confirm 'Delete this article?'
+      @model.destroy()
   edit: (e)->
     e.preventDefault()
     Backbone.history.navigate("articles/edit/#{@model.get('id')}",true)

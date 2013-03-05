@@ -1,5 +1,7 @@
 <div class="corners article_mini">
-  <span class='controlls corners'>
+  <span class="controlls corners">
+    <a href="/articles">List of articles</a>
+    <a href="/articles/<%= @article.get('id') %>">View</a>
     <a href="" class="delete">X</a>
   </span>
   <h2>Editing document</h2>

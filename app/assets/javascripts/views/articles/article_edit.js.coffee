@@ -18,8 +18,9 @@ class Notes.Views.ArticleEdit extends Backbone.View
     @model.private()
   deleteArticle: (event)->
     event.preventDefault()
-    @model.destroy(wait: true)
-    Backbone.history.navigate("/articles",true)
+    if confirm 'Delete this article?'
+      @model.destroy(wait: true)
+      Backbone.history.navigate("/articles",true)
   saveArticle: (e)->
     e.preventDefault()
     attributes =

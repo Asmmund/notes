@@ -9,8 +9,9 @@ class Notes.Views.ArticleShow extends Backbone.View
     @model.on('destroy',@remove,this)
   deleteArticle: (event)->
     event.preventDefault()
-    @model.destroy(wait: true)
-    Backbone.history.navigate("/articles",true)
+    if confirm 'Delete this article?'
+      @model.destroy(wait: true)
+      Backbone.history.navigate("/articles",true)
   render: ->
     $(@el).html(@template(article: @model))
     this
