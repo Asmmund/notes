@@ -7,5 +7,6 @@ window.Notes =
     new Notes.Routers.Articles()
     Backbone.history.start(pushState: true)
 
+
 $(document).ready ->
   Notes.initialize()

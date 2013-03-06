@@ -1,6 +1,6 @@
 <div class="corners article_mini">
   <span class='controlls corners'>
-    <ahref="" class="show view_full">View</a>
+    <a href="" class="show view_full">View</a>
     <a href="" class="edit">Edit</a>
     <a href="" class="delete">X</a>
   </span>
@@ -11,5 +11,5 @@
   <% else: %>
      <div class="private">Private</div>
   <% end %>
-  <p><%= @article.get('body').substr(0,50) %>... </p>
+  <p><%= @safe @article.get('body').substr(0,50) %>... </p>
 </div>

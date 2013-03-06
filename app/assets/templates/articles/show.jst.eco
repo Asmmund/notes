@@ -1,7 +1,7 @@
 <div class="corners article_mini">
   <span class="controlls corners">
-     <a href="/articles">List of articles</a>
-    <a href="/articles/edit/<%= @article.get('id') %>">Edit</a>
+    <a class="list" href="/articles">List of articles</a>
+    <a class="edit" href="/articles/edit/<%= @article.get('id') %>">Edit</a>
     <a href="" class="delete">X</a>
   </span>
   <h3 ><%= @article.get('title') %></h3>
@@ -11,5 +11,5 @@
   <% else: %>
      <div class="private" title="click to change state" >Private</div>
   <% end %>
-  <p><%= @article.get('body') %></p>
+  <p><%= @safe @article.get('body') %></p>
 </div>
