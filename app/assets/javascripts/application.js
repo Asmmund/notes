@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require tinymce-jquery
+//= require tinymce
 //= require underscore
 //= require backbone
 //= require notes

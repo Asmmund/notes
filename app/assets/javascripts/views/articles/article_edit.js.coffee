@@ -8,19 +8,8 @@ class Notes.Views.ArticleEdit extends Backbone.View
     'click div.private': 'publishArticle'
     'submit form#edit_article': 'saveArticle'
   initialize: ()->
-    _.bindAll this,  "render", "afterRender"
-    _this = this
-    @render = _.wrap(@render, (render) ->
-      render()
-      _this.afterRender()
-      _this
-    )
     @model.on('change',@render,this)
     @model.on('destroy',@remove,this)
-  afterRender: ->
-    console.log tinyMCE
-    tinyMCE.execCommand "mceAddControl", true, "article_body" + @model.get("id")
-
   render: ->
     $(@el).html(@template(article: @model))
     this
