@@ -3,7 +3,7 @@
   <form id="new_article">
     <span>Create article</span>
     <input type="text" size="25" name="name" id="new_article_name" maxlength="25" placeholder="Article title" autofocus=""  />
-    <input type="submit" />
+    <input type="submit" id='create_article' />
   </form>
 </div>
 <ul id="article_list">

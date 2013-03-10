@@ -11,15 +11,18 @@ group :assets do
 end
 gem 'tinymce-rails'
 gem 'jquery-rails'
-gem "thin", "1.5.0"
+gem "thin"
 gem 'slim'
 # gem 'debugger'
 gem 'backbone-on-rails'
 gem 'factory_girl_rails'
-group :test do
-  gem "rspec-rails", "~> 2.0"
-  gem "capybara"
+group :development,:test do
+  gem "rspec-rails", '2.12.2'
+  gem 'rb-inotify', '~> 0.9'
+  gem "capybara",'~>2.0'
+  gem "launchy"
   gem "guard-rspec"
   gem 'shoulda-matchers'
+  gem 'database_cleaner'
 end
-gem "mocha", :require => false
+# gem "mocha", :require => false

@@ -1,17 +1,17 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe "api/articles" do
-  integrate_views
+# describe "api/articles" do
+#   render_views
 
-  before do
-    @article = FactoryGirl.create(:article)
-  end
- xit "index action " do
-    get 'articles'
-    expect(response).to be_success
-    expect(response.code).to eq(200)
-  end
+#   before do
+#     @article = FactoryGirl.create(:article)
+#   end
+#  xit "index action " do
+#     get 'articles'
+#     expect(response).to be_success
+#     expect(response.code).to eq(200)
+#   end
 
 
 
-end
+# end

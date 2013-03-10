@@ -1,10 +1,10 @@
 <div class="corners article_mini">
   <span class='controlls corners'>
-    <a href="" class="show view_full">View</a>
-    <a href="" class="edit">Edit</a>
-    <a href="" class="delete">X</a>
+    <a href="/articles/show" title="View" class="show view_full">View</a>
+    <a href="/articles/edit" name='edit' title="Edit" class="edit">Edit</a>
+    <a href="/articles/delete" title="Delete" class="delete">X</a>
   </span>
-  <a href="" class="show view_full"><h3 ><%= @article.get('title') %></h3></a>
+  <a href="/articles" class="show view_full"><h3 ><%= @article.get('title') %></h3></a>
   <h6 class="time"><%= @article.get('updated_at') %></h6>
   <% if  @article.get('published'): %>
      <div class="public">Published</div>

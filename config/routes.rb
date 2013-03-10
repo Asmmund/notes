@@ -2,11 +2,10 @@ Notes::Application.routes.draw do
   scope 'api' do
     resources :articles
   end
-
+  resources :main
   root to: "main#index"
   match '/articles*path', to: 'main#index'
   match '/articles', to: 'main#index'
-  match '/article*path', to: 'main#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
