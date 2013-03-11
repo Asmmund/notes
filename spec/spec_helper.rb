@@ -20,9 +20,9 @@ RSpec.configure do |config|
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
-config.before(:suite) do
+  config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with(:transaction)
   end
 
   config.before(:each) do
@@ -48,6 +48,6 @@ config.before(:suite) do
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
+  config.order = "ans"
 end
 # require "mocha/setup"

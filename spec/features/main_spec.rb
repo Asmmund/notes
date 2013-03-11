@@ -1,35 +1,39 @@
 require 'spec_helper'
 
-describe "Main" do
-  describe "test articles", :js => true do
-    before do
+ feature "test articles", :js => true do
+    before(:each) do
       @name = create_article
     end
 
-    it "create article" do
+    scenario "create article" do
       page.should have_content(@name)
     end
-    it "make article public" do
+    scenario "make article public" do
       all('div').select { |elt| elt.text == "Private" }.first.click
       page.should have_content('Published')
     end
-    it "view article" do
-      all('a').select {|elt| elt.text == "View" }.first.click
-      page.should have_content('Viewing')
+    scenario "view article" do
+      link = all('a').select {|elt| elt.text == "View" }.first
+      if link
+        link.click
+        page.should have_content('Viewing')
+      else
+        raise 'No view link found!'
+      end
     end
-    it "edit article" do
-      all('a').select {|elt| elt.text == "Edit" }.first.click
+    scenario "edit article" do
+      el =  all('a').select {|elt| elt.text == "Edit" }.first
+      el.click if el
       page.should have_content('Editing document')
     end
 
-    it "delete article" do
+    scenario "delete article" do
       elements_numers = all('a').select {|elt| elt.text == "X" }.count
       (elements_numers+1).times do
-        all('a').select {|elt| elt.text == "X" }.first.click
+        el = all('a').select {|elt| elt.text == "X" }.first
+        el.click if el
         page.driver.browser.switch_to.alert.accept
       end
       page.should have_no_content('test')
     end
   end
-
-end
