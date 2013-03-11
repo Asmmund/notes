@@ -1,6 +1,6 @@
 require 'spec_helper'
-
  feature "test articles", :js => true do
+
     before(:each) do
       @name = create_article
     end
@@ -8,10 +8,12 @@ require 'spec_helper'
     scenario "create article" do
       page.should have_content(@name)
     end
+
     scenario "make article public" do
       all('div').select { |elt| elt.text == "Private" }.first.click
       page.should have_content('Published')
     end
+
     scenario "view article" do
       link = all('a').select {|elt| elt.text == "View" }.first
       if link
@@ -21,6 +23,7 @@ require 'spec_helper'
         raise 'No view link found!'
       end
     end
+
     scenario "edit article" do
       el =  all('a').select {|elt| elt.text == "Edit" }.first
       el.click if el
@@ -36,4 +39,5 @@ require 'spec_helper'
       end
       page.should have_no_content('test')
     end
+
   end
