@@ -6,5 +6,4 @@ module CapybaraMacros
     click_button 'create_article'
     name
   end
-
 end
