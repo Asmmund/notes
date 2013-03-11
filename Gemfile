@@ -24,5 +24,6 @@ group :development,:test do
   gem "guard-rspec"
   gem 'shoulda-matchers'
   gem 'database_cleaner'
+  gem 'sqlite3'
 end
 # gem "mocha", :require => false
