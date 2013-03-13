@@ -26,4 +26,6 @@ group :development,:test do
   gem 'database_cleaner'
   gem 'sqlite3'
 end
+ gem 'bcrypt-ruby', '~> 3.0.0', require: "bcrypt"
+ gem 'email_validator'
 # gem "mocha", :require => false

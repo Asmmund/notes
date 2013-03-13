@@ -1,0 +1,24 @@
+div[id="signup-view" class="container corners"]
+  = form_for 'api/account/new', class: 'signup_form' do
+    div[class="control-group corners"]
+      = label_tag :name, nil, class: 'control-label'
+      div[class="controls"]
+        = text_field_tag :name, nil,placeholder: 'John J. Johnson'
+    div[class="control-group corners"]
+      = label_tag :email, nil, class: 'control-label'
+      div[class="controls"]
+        = text_field_tag :email, nil,placeholder: 'john@exaple.org'
+    div[class="control-group corners"]
+      = label_tag :password, nil, class: 'control-label'
+      div[class="controls"]
+        = password_field_tag :password, nil
+    div[class="control-group corners"]
+      = label_tag :password_confirmation, nil, class: 'control-label'
+      div[class="controls"]
+        = password_field_tag :password_confirmation, nil
+    div[class="form-actions"]
+      = submit_tag 'Signup', class: 'btn btn-primary'
+      div[class='clear']
+  div[class='clear']
+
+

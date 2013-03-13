@@ -1,0 +1,38 @@
+
+ body {
+  background: grey;
+  font-size: 1.2em;
+  font-family: Georgia,Serif;;
+ }
+
+ div#container {
+  margin: 0 auto;
+  background: white !important;
+  width:800px;
+  padding: 5px;
+}
+.corners {
+    border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: 1px solid grey;
+
+}
+#signup-view {
+  margin: 0 auto;
+  background: white !important;
+  width:300px;
+  padding: 5px;
+  .control-group {
+    margin: 10px 0;
+    text-align: center;
+
+    * {
+      margin:5px 0;
+    }
+  }
+  .btn {
+    margin: 0 0 0 230px;
+  }
+}
+.clear { clear: both; }
