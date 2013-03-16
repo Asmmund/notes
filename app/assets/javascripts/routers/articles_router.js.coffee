@@ -1,10 +1,13 @@
 class Notes.Routers.Articles extends Backbone.Router
   routes:
-    '': 'index'
+    '': 'signup'
     'articles': 'index'
     'articles/:id': "show"
     'articles/edit/:id': 'edit'
-
+    'signup': 'signup'
+  signup: ->
+    view = new Notes.Views.signupView()
+    $('#container').html(view.render().el)
   initialize: ->
     @collection = new Notes.Collections.Articles()
     @collection.reset( $('#container').data('articles') )

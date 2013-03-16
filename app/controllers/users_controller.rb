@@ -1,16 +1,19 @@
 class UsersController < ApplicationController
-  respond_to :html, :json
+  respond_to :json
 
-  def new
-    @user = User.new
-  end
-
+  # def index
+  #   respond_with User.all
+  # end
+  # def show
+  #   respond_with User.find(params[:id])
+  # end
   def create
-    @user = User.new params[:user]
-
-    if @user.save
-      flash["notice"] = 'Account created!'
-    end
-    respond_with @user,location: '/'
+    respond_with User.create(params[:user]),:location => signup_path
   end
+  # def update
+  #   respond_with User.update(params[:id],params[:user])
+  # end
+  # def destroy
+  #   respond_with User.destroy(params[:id])
+  # end
 end

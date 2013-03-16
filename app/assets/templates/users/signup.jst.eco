@@ -1,0 +1,36 @@
+<div id="signup-view" class="container corners">
+  <form id='create_user' class='signup_form'>
+    <div class="control-group corners">
+      <label for='name' class='control-label'>Name</label>
+      <div class="controls">
+        <input type='text' id='name' name='name' maxlength="15" autofocus='' />
+      </div>
+    </div>
+    <div class="control-group corners">
+      <label for='email' class='control-label'>Email</label>
+      <div class="controls">
+        <input type='text' id='email' maxlength="25" />
+      </div>
+    </div>
+    <div class="control-group corners">
+      <label for='password' class='control-label'>Password</label>
+      <div class="controls">
+        <input type='password' id='password' />
+      </div>
+    </div>
+    <div class="control-group corners">
+      <label for='password_confirmation' class='control-label'>Password Confirmation</label>
+      <div class="controls">
+        <input type='password' id='password_confirmation' name='user[password_confirmation]' />
+      </div>
+    </div>
+    <div class="form-actions">
+      <input type="submit" value='Signup' class='btn btn-primary' />
+      <div class='clear'></div>
+    </div>
+    </form>
+  <div class='clear'></div>
+</div>
+
+
+

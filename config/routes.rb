@@ -6,7 +6,7 @@ Notes::Application.routes.draw do
   end
   match 'signup' => 'users#new', via: 'get'
   resources :main
-  root to: 'users#new' #main#index"
+  root to: "main#index"
   match '/articles*path', to: 'main#index'
   match '/articles', to: 'main#index'
 

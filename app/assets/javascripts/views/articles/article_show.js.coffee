@@ -6,7 +6,7 @@ class Notes.Views.ArticleShow extends Backbone.View
     'click a.edit': 'editArticle'
     'click div.public': 'hideArticle'
     'click div.private': 'publishArticle'
-  initialize: (collection,id)->
+  initialize: ->
     @model.on('change',@render,this)
     @model.on('destroy',@remove,this)
   listArticles: (event)->

@@ -1,5 +1,5 @@
 div[id="signup-view" class="container corners"]
-  = form_for 'api/account/new', class: 'signup_form' do
+  = form_for account_index_path, class: 'signup_form' do
     div[class="control-group corners"]
       = label_tag :name, nil, class: 'control-label'
       div[class="controls"]
