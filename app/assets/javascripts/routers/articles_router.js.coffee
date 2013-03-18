@@ -1,16 +1,24 @@
 class Notes.Routers.Articles extends Backbone.Router
   routes:
-    '': 'signup'
+    '': 'login'
     'articles': 'index'
     'articles/:id': "show"
     'articles/edit/:id': 'edit'
     'signup': 'signup'
+    'login': 'login'
+
+  login: ->
+    view = new Notes.Views.loginView()
+    $('#container').html(view.render().el)
+
   signup: ->
     view = new Notes.Views.signupView()
     $('#container').html(view.render().el)
+
   initialize: ->
     @collection = new Notes.Collections.Articles()
     @collection.reset( $('#container').data('articles') )
+
   edit: (id)->
     @model = @collection.get(id)
     view = new Notes.Views.ArticleEdit(model: @model)
@@ -20,12 +28,13 @@ class Notes.Routers.Articles extends Backbone.Router
       tinyMCE.execCommand 'mceFocus', false, el_id
       tinyMCE.execCommand "mceRemoveControl", false, el_id
     tinyMCE.execCommand "mceAddControl", false, el_id
-    tinyMCE.triggerSave();
+    tinyMCE.triggerSave()
 
   show: (id)->
     @model = @collection.get(id)
     view = new Notes.Views.ArticleShow(model: @model)
     $('#container').html(view.render().el)
+
   index: ->
     view = new Notes.Views.ArticlesIndex(collection: @collection)
     $('#container').html(view.render().el)

@@ -1,0 +1,21 @@
+<div id="signup-view" class="container corners">
+  <form id='login_user' class='signup_form'>
+    <div class="control-group">
+      <label for='email' class='control-label'>Email</label>
+      <div class="controls">
+        <input type='text' id='email' maxlength="25" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label for='password' class='control-label'>Password</label>
+      <div class="controls">
+        <input type='password' id='password' />
+      </div>
+    </div>
+    <div class="form-actions">
+      <input type="submit" value='Login' class='btn btn-primary' />
+      <div class='clear'></div>
+    </div>
+    </form>
+  <div class='clear'></div>
+</div>

@@ -14,6 +14,6 @@ Notes::Application.routes.draw do
   match 'login' => 'sessions#new', via: :get
   match 'logout' => 'sessions#destroy', :via => [:get, :delete]
 
-  root to: 'users#new' #main#index"
+  root to: "main#index"
 
 end
