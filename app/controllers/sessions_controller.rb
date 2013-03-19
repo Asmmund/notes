@@ -1,15 +1,14 @@
 class SessionsController < ApplicationController
-  respond_to :html, :json
+  respond_to :json
 
   def create
     @user = User.authenticate params[:email], params[:password]
     if @user
       create_user_session @user
-      respond_with @user, location:'/', notice: 'Login successful'
+      respond_with @user, location:'/'
     else
       respond_to do |format|
-        format.html { render 'new' }
-        format.json { render json: { error: 'invalid email or password' } }
+        format.json { render json: { error: 'invalid email or password' }, status: 401  }
       end
     end
   end
