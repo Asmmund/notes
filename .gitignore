@@ -16,5 +16,6 @@
 /tmp
 /doc
 /doc/*
+coverage
 /config/database.yml
 Gemfile.lock
