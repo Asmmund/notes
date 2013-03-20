@@ -1,4 +1,5 @@
 <div id="signup-view" class="container corners">
+  <a href='logout' id="logout">Logout</a>
   <form id='login_user' class='signup_form'>
     <div class="control-group">
       <label for='email' class='control-label'>Email</label>

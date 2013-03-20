@@ -2,8 +2,8 @@ class Notes.Models.User extends Backbone.Model
   url: '/api/account'
 
 
-  authorize: ->
-    ret = false
+  authorize: =>
+    _this = @
     jQuery.ajax(
       type: 'POST'
       url: '/api/sessions.json'
@@ -12,13 +12,26 @@ class Notes.Models.User extends Backbone.Model
         email: @get('email')
         password:  @get('password')
     ).success( (response) ->
-      ret = true
+      $('form')[0].reset()
+      alert( 'Logged in' )
+      @currentUser = response
+      _this.attributes = response
+      Backbone.history.navigate("articles",true)
     ).error( (response) ->
-      ret = false
+       alert( 'Wrong username or email!' )
+       $('#email').focus().select()
     )
-    ret
 
+  logout: =>
 
-
-
-
+    jQuery.ajax(
+      type: 'GET'
+      url: '/logout'
+      wait: true
+    ).success( (response) ->
+      alert( response.text )
+      return true
+    ).error( (response) ->
+       alert response.text
+       return false
+    )

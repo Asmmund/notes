@@ -1,4 +1,5 @@
 class Notes.Routers.Articles extends Backbone.Router
+  currentUser: null
   routes:
     '': 'login'
     'articles': 'index'

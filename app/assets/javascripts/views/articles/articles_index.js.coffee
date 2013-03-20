@@ -7,6 +7,7 @@ class Notes.Views.ArticlesIndex extends Backbone.View
     @collection.on('add',@appentArticle,this)
 
   render: ->
+    console.log  @currentUser
     $(@el).html(@template())
     @collection.each(@appentArticle)
     this
@@ -28,7 +29,6 @@ class Notes.Views.ArticlesIndex extends Backbone.View
       error: @handleError
 
   handleError: (entry,response) ->
-    console.log entry, response
     if response.status == 422
       errors = $.parseJSON(response.responseText).errors
       for attribute, messages of errors

@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
     respond_with Article.find(params[:id])
   end
   def create
+    params[:article][:user_id] = session[:user_id] || ''
     respond_with Article.create(params[:article])
   end
   def update
