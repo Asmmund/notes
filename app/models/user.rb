@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, :confirmation => true
   validates :password_confirmation, presence: { if: :password }
   has_many :articles, :dependent => :destroy
+
   def self.authenticate email, pass
     user = where(email: email).first
     user && BCrypt::Password.new(user.password_digest) == pass ? user : nil
