@@ -16,6 +16,7 @@ FactoryGirl.define do
   factory :article do
     title { generate(:random_string) }
     body  "<h1>article head</h1>"
+    published false
     user_id 1
   end
 

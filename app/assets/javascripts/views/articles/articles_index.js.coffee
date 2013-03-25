@@ -2,6 +2,7 @@ class Notes.Views.ArticlesIndex extends Backbone.View
   template: JST['articles/index']
   events:
     'submit form#new_article': 'createArticle'
+    'click #login': 'login'
   initialize: ->
     @collection.on('reset',@render,this)
     @collection.on('add',@appentArticle,this)
@@ -16,6 +17,9 @@ class Notes.Views.ArticlesIndex extends Backbone.View
     view = new Notes.Views.Article(model: article)
     @$('ul#article_list').append(view.render().el)
 
+  login: (e)->
+    e.preventDefault()
+    Backbone.history.navigate("login",true)
   createArticle: (e)->
     e.preventDefault()
     attributes =

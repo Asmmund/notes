@@ -1,11 +1,14 @@
 <h2>Articles</h2>
- <div id="create_article" class="corners">
-  <form id="new_article">
-    <span>Create article</span>
-    <input type="text" size="25" name="name" id="new_article_name" maxlength="25" placeholder="Article title" autofocus=""  />
-    <input type="submit" id='create_article' />
-  </form>
-</div>
-<ul id="article_list">
+  <div class="corners login_link">
+    <a id="login" href="/login">Login/Signup</a>
+  </div>
+  <div id="create_article" class="corners">
+    <form id="new_article">
+      <span>Create article</span>
+      <input type="text" size="25" name="name" id="new_article_name" maxlength="25" placeholder="Article title" autofocus=""  />
+      <input type="submit" id='create_article' />
+    </form>
+  </div>
+  <ul id="article_list">
 
-</ul>
+  </ul>
