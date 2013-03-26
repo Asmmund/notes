@@ -13,6 +13,11 @@ feature 'check frontpage' , js: true do
     visit '/'
     page.should have_content 'Published'
   end
+  scenario 'Should allow users to view selected articles' do
+    visit '/'
+    click_link("View")
+    page.should have_content 'Viewing'
+  end
   scenario 'don\'t see private articles' do
     visit '/'
     page.should_not have_content 'Private'

@@ -13,8 +13,13 @@ class Notes.Views.loginView extends Backbone.View
     if !@validateField('password') && !@validateField('email')
       return false
     @model.attributes  = @readAttributes()
-    Backbone.history.navigate("articles",true) if @model.authorize()
-
+    result = @model.authorize()
+    console.warn result.responseText
+    $('#errors').text('')
+    if result.status != 401
+      Backbone.history.navigate("articles",true)
+    else
+      $('#errors').text('Wrong name/password!')
   bindParams: ->
     @form = @$("form")
     @emailField = @$("#email")
@@ -36,7 +41,10 @@ class Notes.Views.loginView extends Backbone.View
     if response.status == 422
       errors = $.parseJSON(response.responseText).errors
       for attribute, messages of errors
-        alert "#{attribute} #{message} " for message in messages
+        errors += "#{attribute} #{message}<br /> " for message in messages
+      @$('#errors').text(errors)
+      return false
+
   render: ->
     $(@el).html(@template())
     this
@@ -44,5 +52,5 @@ class Notes.Views.loginView extends Backbone.View
   validateField: (id)->
     if( $('#'+id).val() != '' )
       return true
-    alert('field '+ id.toUpperCase()+' can\'t be blank!')
+    $('#errors').text(id.toUpperCase()+' can\'t be blank!')
     return false

@@ -73,3 +73,13 @@ ul#article_list{
   }
 }
 .clear { clear: both; }
+.corners.login_link {
+  width: 115px;
+  float: right;
+  padding: 2px;
+}
+#errors {
+  text-align:center;
+  color: red;
+  font-weight: bold;
+}

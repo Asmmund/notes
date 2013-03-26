@@ -10,6 +10,7 @@ Notes::Application.routes.draw do
   match 'signup' => 'users#new', via: 'get'
   match 'logout', to: 'sessions#destroy', via: 'get'
   resource :main
+  match 'public*path', to: 'main#index'
   match 'articles*path', to: 'main#index'
   match 'articles', to: 'main#index'
   match 'signup' , to: 'main#index'

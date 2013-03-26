@@ -1,7 +1,9 @@
 class Notes.Routers.Articles extends Backbone.Router
   currentUser: null
   routes:
-    '': 'index'
+    '': 'public_index'
+    'public/articles': 'public_index'
+    'public/articles/:id': 'public_show'
     'articles': 'index'
     'articles/:id': "show"
     'articles/edit/:id': 'edit'
@@ -35,7 +37,15 @@ class Notes.Routers.Articles extends Backbone.Router
     @model = @collection.get(id)
     view = new Notes.Views.ArticleShow(model: @model)
     $('#container').html(view.render().el)
+  public_show: (id)->
+    @model = @collection.get(id)
+    view = new Notes.Views.PublicArticleShow(model: @model)
+    $('#container').html(view.render().el)
 
   index: ->
     view = new Notes.Views.ArticlesIndex(collection: @collection)
+    $('#container').html(view.render().el)
+
+  public_index: ->
+    view = new Notes.Views.PublicArticlesIndex(collection: @collection)
     $('#container').html(view.render().el)

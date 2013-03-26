@@ -1,0 +1,8 @@
+<div class="corners login_link">
+  <a id="login" href="/login">Login/Signup</a>
+</div>
+<h2>Articles</h2>
+
+<ul id="article_list">
+
+</ul>

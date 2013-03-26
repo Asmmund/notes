@@ -12,14 +12,11 @@ class Notes.Models.User extends Backbone.Model
         email: @get('email')
         password:  @get('password')
     ).success( (response) ->
-      $('form')[0].reset()
-      alert( 'Logged in' )
       @currentUser = response
       _this.attributes = response
-      Backbone.history.navigate("articles",true)
+      return response
     ).error( (response) ->
-       alert( 'Wrong username or email!' )
-       $('#email').focus().select()
+      return false
     )
 
   logout: =>
