@@ -23,14 +23,8 @@ feature 'check frontpage' , js: true do
     page.should_not have_content 'Private'
   end
   scenario 'existing user should login' do
-    visit '/'
-    click_link("Login/Signup")
-    within("#login_user") do
-      fill_in 'Email', :with => @u.email
-      fill_in 'Password', :with => @u.password
-      click_button('Login')
-    end
-    page.should have_content 'Welcome '+@u.name
+    login
+    page.should have_content 'You\'ll be redirected to your articles '+@u.name
   end
 
   scenario 'fictional user should not login' do
@@ -40,10 +34,22 @@ feature 'check frontpage' , js: true do
       fill_in 'Email', :with => 'sdf@fsd.om'
       fill_in 'Password', :with => '23423542'
       click_button('Login')
+      click_button('Login')
     end
-    page.should have_content 'Wrong username/email'
+    page.should have_content 'Wrong email/password!'
   end
 
+  def login
+    visit '/'
+    click_link("Login/Signup")
+    within("#login_user") do
+      fill_in 'Email', :with => @u.email
+      fill_in 'Password', :with => @u.password
+      #TODO solve this error
+      click_button('Login')
+      click_button('Login')
+    end
+  end
 
 end
 

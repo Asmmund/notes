@@ -9,4 +9,20 @@ window.Notes =
 
 
 $(document).ready ->
+  window.current_user =
+    name: ""
+    company: ""
+    created_at: ""
+    email: ""
+    facebook: ""
+    id: ""
+    license_id: ""
+    linkedin: ""
+    password_digest: ""
+    phone: ""
+    title: ""
+    twitter: ""
+    updated_at: ""
+    web: ""
+  window.ajax_status = false
   Notes.initialize()

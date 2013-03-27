@@ -2,24 +2,25 @@ class Notes.Views.loginView extends Backbone.View
   template: JST['users/login']
   events:
     'submit form#login_user': 'loginUser'
-    'click a#logout': 'logoutUser'
-
-  logoutUser: (e) ->
-    e.preventDefault()
-    @model.logout()
 
   loginUser: (e)->
     e.preventDefault()
     if !@validateField('password') && !@validateField('email')
       return false
     @model.attributes  = @readAttributes()
+    @$('#errors').text()
     result = @model.authorize()
-    console.warn result.responseText
-    $('#errors').text('')
-    if result.status != 401
-      Backbone.history.navigate("articles",true)
+    window.ajax_status = false
+    console.log result
+    if result
+      @$('#errors').html('<span style="color:green">You\'ll be redirected to your articles '+ window.current_user.name+'</b>' )
+      setTimeout('Backbone.history.navigate("articles",true);',1000)
     else
-      $('#errors').text('Wrong name/password!')
+      @$('#errors').text('Wrong email/password!')
+
+
+
+
   bindParams: ->
     @form = @$("form")
     @emailField = @$("#email")
@@ -41,10 +42,7 @@ class Notes.Views.loginView extends Backbone.View
     if response.status == 422
       errors = $.parseJSON(response.responseText).errors
       for attribute, messages of errors
-        errors += "#{attribute} #{message}<br /> " for message in messages
-      @$('#errors').text(errors)
-      return false
-
+        alert "#{attribute} #{message} " for message in messages
   render: ->
     $(@el).html(@template())
     this
@@ -52,5 +50,5 @@ class Notes.Views.loginView extends Backbone.View
   validateField: (id)->
     if( $('#'+id).val() != '' )
       return true
-    $('#errors').text(id.toUpperCase()+' can\'t be blank!')
+    alert('field '+ id.toUpperCase()+' can\'t be blank!')
     return false
