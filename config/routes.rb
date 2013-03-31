@@ -7,8 +7,9 @@ Notes::Application.routes.draw do
     resource :sessions, only: [ :new, :create, :destroy ]
   end
 
-  match 'signup' => 'users#new', via: 'get'
-  match 'logout', to: 'sessions#destroy', via: 'get'
+  # match 'signup' => 'users#new', via: 'get'
+  # match 'ajax_logout', to: 'sessions#destroy', via: 'get'
+  get 'ajax_logout' => 'sessions#destroy', :as=> 'ajax_logout'
   resource :main
   match 'public*path', to: 'main#index'
   match 'articles*path', to: 'main#index'

@@ -25,14 +25,16 @@ class Notes.Views.signupView extends Backbone.View
     @model.save attributes,
       wait: true
       success: ->
-        alert 'User was created'
-        Backbone.history.navigate('',true)
+        @$('#errors').html('<span class="correct">User was created, you\'ll be redirected to the main page and you can login</span>' )
+        setTimeout('Backbone.history.navigate("login",true);',3000)
       error: @handleError
   handleError: (entry,response) ->
+    errors = ''
     if response.status == 422
       errors = $.parseJSON(response.responseText).errors
       for attribute, messages of errors
-        alert "#{attribute} #{message} " for message in messages
+        errors += "#{attribute} #{message} <br />" for message in messages
+      @$('#errors').html(errors)
   render: ->
     $(@el).html(@template())
     this

@@ -2,13 +2,15 @@ class Notes.Views.ArticlesIndex extends Backbone.View
   template: JST['articles/index']
   events:
     'submit form#new_article': 'createArticle'
-    'click #login': 'login'
+    'click #logout': 'logout'
+    'click a.public': 'publicWall'
   initialize: ->
     @collection.on('reset',@render,this)
     @collection.on('add',@appentArticle,this)
+    @user = new Notes.Models.User()
 
   render: ->
-    console.log  @currentUser
+    console.log  window.currentUser
     $(@el).html(@template())
     @collection.each(@appentArticle)
     this
@@ -17,9 +19,15 @@ class Notes.Views.ArticlesIndex extends Backbone.View
     view = new Notes.Views.Article(model: article)
     @$('ul#article_list').append(view.render().el)
 
-  login: (e)->
+  publicWall: (e)->
     e.preventDefault()
-    Backbone.history.navigate("login",true)
+    Backbone.history.navigate("public/articles",true)
+
+  logout: (e)->
+    e.preventDefault()
+    @user.logout()
+    $('#container').data('articles','')
+    # window.location = '/public/articles'
   createArticle: (e)->
     e.preventDefault()
     attributes =

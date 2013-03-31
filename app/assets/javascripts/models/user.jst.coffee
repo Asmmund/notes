@@ -3,8 +3,6 @@ class Notes.Models.User extends Backbone.Model
 
 
   authorize: ->
-    obj = {}
-    result = true
     jQuery.ajax(
       type: 'POST'
       url: '/api/sessions.json'
@@ -16,23 +14,23 @@ class Notes.Models.User extends Backbone.Model
       window.current_user = response
       @currentUser = response
       @attributes = response
-            # $('form')[0].reset()
-      window.ajax_status = true
+      # console.log 'Model:'
+      # console.log response
     ).error( (response) ->
-      $('#email').focus().select()
-      window.ajax_status = false
+      # console.log response
     )
+    # console.log 'Model response:'
+    # console.log window.current_user
+    return window.current_user
 
-    return window.ajax_status
-    #
-  logout: =>
+  logout: ->
 
     jQuery.ajax(
       type: 'GET'
-      url: '/logout'
+      url: '/ajax_logout'
       wait: true
     ).success( (response) ->
-      alert( response.text )
+      # console.log ( response)
       window.current_user =
         name: ""
         company: ""
@@ -48,8 +46,9 @@ class Notes.Models.User extends Backbone.Model
         twitter: ""
         updated_at: ""
         web: ""
+
       return true
     ).error( (response) ->
-       alert response.text
+       console.log response
        return false
     )

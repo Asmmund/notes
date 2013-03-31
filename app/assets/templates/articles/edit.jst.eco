@@ -15,7 +15,7 @@
   <% else: %>
      <div class="private">Private</div>
   <% end %><br>
-    <input type="submit" />
+    <input type="submit" id="save_article" />
   </form>
 
 

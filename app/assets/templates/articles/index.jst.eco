@@ -1,7 +1,10 @@
+<div class="corners login_link">
+  <a id="logout" href="/logout">Logout</a>
+</div>
+<div class="corners login_link">
+  <a class="public" href='/'>Public wall</a>
+</div>
 <h2>Articles</h2>
-  <div class="corners login_link">
-    <a id="login" href="/login">Login/Signup</a>
-  </div>
   <div id="create_article" class="corners">
     <form id="new_article">
       <span>Create article</span>

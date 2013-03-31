@@ -3,12 +3,14 @@ class Notes.Views.PublicArticlesIndex extends Backbone.View
   events:
     # 'submit form#new_article': 'createArticle'
     'click #login': 'login'
+    'click #view_controlls': 'viewControlls'
   initialize: ->
     @collection.on('reset',@render,this)
     @collection.on('add',@appentArticle,this)
 
   render: ->
-    console.log  @currentUser
+    # console.log  'window.currentUser'
+    # console.log  window.currentUser
     $(@el).html(@template())
     @collection.each(@appentArticle)
     this
@@ -16,6 +18,10 @@ class Notes.Views.PublicArticlesIndex extends Backbone.View
   appentArticle: (article) =>
     view = new Notes.Views.PublicArticle(model: article)
     @$('ul#article_list').append(view.render().el)
+
+  viewControlls: (e)->
+    e.preventDefault()
+    Backbone.history.navigate("articles",true)
 
   login: (e)->
     e.preventDefault()

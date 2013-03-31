@@ -14,9 +14,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-
+    session[:user_id] = nil
     respond_to do |format|
         format.json { render json: { text: 'Logged out' }, status: 200  }
-      end if destroy_user_session
+    end
   end
 end

@@ -1,4 +1,6 @@
 <div class="corners login_link">
+  <a id="view_controlls" href="/articles">Controlls</a>
+</div><div class="corners login_link">
   <a id="login" href="/login">Login/Signup</a>
 </div>
 <h2>Articles</h2>

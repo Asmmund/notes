@@ -22,6 +22,7 @@ class Notes.Routers.Articles extends Backbone.Router
     @collection = new Notes.Collections.Articles()
     @collection.reset( $('#container').data('articles') )
 
+
   edit: (id)->
     @model = @collection.get(id)
     view = new Notes.Views.ArticleEdit(model: @model)

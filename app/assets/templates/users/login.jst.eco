@@ -1,5 +1,5 @@
 <div id="signup-view" class="container corners">
-  <a href='logout' id="logout">Logout</a>
+  <a href='signup' id="signup">Signup</a>
   <div id="errors"></div>
   <form id='login_user' class='signup_form'>
     <div class="control-group">
