@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '~> 3.2.13'
 
 gem 'pg'
 
@@ -26,4 +26,6 @@ group :development,:test do
   gem 'database_cleaner'
   gem 'sqlite3'
 end
-# gem "mocha", :require => false
+gem 'simplecov', :require => false, :group => :test
+gem 'bcrypt-ruby', '~> 3.0.0', require: "bcrypt"
+gem 'email_validator'

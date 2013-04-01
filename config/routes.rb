@@ -1,8 +1,14 @@
 Notes::Application.routes.draw do
+  get 'sign_up' => 'users#new', as: 'sign_up'
+  get 'login' => 'sessions#new', as: 'login'
+  get 'logout' => 'sessions#destroy', as: 'logout'
+
   scope 'api' do
     resources :articles
   end
   resources :main
+  resources :sessions
+  resources :users
   root to: "main#index"
   match '/articles*path', to: 'main#index'
   match '/articles', to: 'main#index'

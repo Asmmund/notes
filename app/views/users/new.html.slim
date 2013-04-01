@@ -1,0 +1,33 @@
+div
+  h1 Sign Up
+  = form_for @user do |f|
+    - if @user.errors.any?
+      h3 Errors
+      ul
+        - for message in  @user.errors.full_messages
+          li
+            = message
+    table
+      tr
+        td
+          = f.label :name
+        td
+          = f.text_field :name
+      tr
+        td
+          = f.label :email
+        td
+          = f.text_field :email
+      tr
+        td
+          = f.label :password
+        td
+          = f.password_field :password
+      tr
+        td
+          = f.label :password_confirmation
+        td
+          = f.password_field :password_confirmation
+
+
+    = f.submit

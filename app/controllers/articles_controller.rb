@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+before_filter :authorize, only: [:create, :update, :destroy]
   respond_to :json
 
   def index
