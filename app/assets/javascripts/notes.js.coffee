@@ -24,5 +24,4 @@ $(document).ready ->
     twitter: ""
     updated_at: ""
     web: ""
-  window.ajax_status = false
   Notes.initialize()

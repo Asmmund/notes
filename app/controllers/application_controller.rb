@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     def destroy_user_session
       puts '*application method destroy session'
       session[:user_id] = nil
-      true
+
     end
 
 

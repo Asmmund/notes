@@ -15,8 +15,8 @@ class Notes.Views.loginView extends Backbone.View
     @$('#errors').text()
     # TODO Solve error with login from 2 submit
     result = @model.authorize()
-    # console.warn 'view:'
-    # console.warn result
+    console.warn 'view:'
+    console.warn result
     if ( result.email != '' )
       @$('form')[0].reset()
       @$('#errors').html('<span class="correct">You\'ll be redirected to your articles '+ window.current_user.name+'</span>' )

@@ -10,7 +10,9 @@ class Notes.Views.ArticlesIndex extends Backbone.View
     @user = new Notes.Models.User()
 
   render: ->
-    console.log  window.currentUser
+    console.warn 'Current user:'
+    console.warn window.current_user
+
     $(@el).html(@template())
     @collection.each(@appentArticle)
     this
@@ -23,11 +25,11 @@ class Notes.Views.ArticlesIndex extends Backbone.View
     e.preventDefault()
     Backbone.history.navigate("public/articles",true)
 
-  logout: (e)->
-    e.preventDefault()
-    @user.logout()
-    $('#container').data('articles','')
-    # window.location = '/public/articles'
+  # logout: (e)->
+  #   e.preventDefault()
+  #   @user.logout()
+  #   $('#container').data('articles','')
+  #   window.location = '/public/articles'
   createArticle: (e)->
     e.preventDefault()
     attributes =

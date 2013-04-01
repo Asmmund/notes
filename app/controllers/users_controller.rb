@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   # def update
   #   respond_with User.update(params[:id],params[:user])
   # end
-  # def destroy
-  #   respond_with User.destroy(params[:id])
-  # end
+  def destroy
+    respond_with User.destroy(params[:id])
+  end
 end
